@@ -74,7 +74,7 @@ pipeline {
         stage('헬름 생성') {
             steps {
                 // K8S 배포
-                sh "helm create api-tester-${CLASS_NUM}"
+                sh "source /usr/bin/helm create api-tester-${CLASS_NUM}"
             }
         }
 	    
@@ -82,7 +82,7 @@ pipeline {
             steps {                
                 sh "cd api-tester-${CLASS_NUM}"     
                 // K8S 배포전 배포될 내용을 확인 
-                sh "helm template api-tester-${CLASS_NUM} ./${CLASS_NUM}/deploy/helm/4.addition/api-tester -n anotherclass-222 --create-namespace"
+                sh "source /usr/bin/helm template api-tester-${CLASS_NUM} ./${CLASS_NUM}/deploy/helm/4.addition/api-tester -n anotherclass-222 --create-namespace"
             }
         }
 
