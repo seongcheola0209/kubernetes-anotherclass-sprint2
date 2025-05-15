@@ -1,11 +1,5 @@
 pipeline {
     agent any
-
-    tools {
-        gradle 'gradle-7.6.1'
-        jdk 'java-17-openjdk'
-    }
-
     parameters {
         // DockerHub 사용자명 입력
         string(name: 'DOCKERHUB_USERNAME',  defaultValue: '', description: 'DockerHub 사용자명을 입력하세요.')
