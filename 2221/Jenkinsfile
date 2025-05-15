@@ -73,7 +73,9 @@ pipeline {
 
         stage('헬름 생성') {
             steps {
-                // K8S 배포
+                sh "pwd"
+                sh "which helm"		    
+    	        // K8S 배포
                 sh "/bin/helm create api-tester-${CLASS_NUM}"
             }
         }
